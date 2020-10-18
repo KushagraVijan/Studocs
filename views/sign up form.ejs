@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Studocs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        function signupForm() {
+            //console.log("Hiii");
+            var email = document.forms["signup"]["email"].value;
+            var password = document.forms["signup"]["password"].value;
+    
+            if (password.lowercase.includes("password")) {
+                alert("Password cannot contain 'password'");
+                return false;
+            } else if(password.length<8){
+                alert("Password is too short. Use atleast 8 length string.");
+                return false;
+            }
+       }
+
+       document.getElementById("myBtn").addEventListener("click", signupForm);
+    </script>
+</head>
+
+<body>
+    <div class="centered-form">
+        <div class="centered-form__box">
+            <img src="/icons/user icon.PNG" style="height: 50px; width: 50px;">
+            <img src="/icons/studocs.jpg" style="margin-left: 30px; height: 70px; width: 140px;">
+            <h1>Sign Up</h1>
+            <form name="signup" method="post">
+                <label>User Email:</label>
+				<input type="text" name="email" placeholder="Enter Email" required>
+				<label>User Name:</label>
+                <input type="text" name="name" placeholder="Enter Full Name" required>
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Enter Password" required>
+                <button>Sign Up</button>
+            </form>
+            <div><br>
+                Already have an account.
+                <a href="/login"> Login</a> 
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

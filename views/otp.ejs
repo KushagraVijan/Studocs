@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Studocs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icons/favicon.png">
+    <style>
+        
+    /* General Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 24px;
+}
+
+input {
+    font-size: 16px;
+}
+
+body {
+    line-height: 1.4;
+    color: #333333;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px;
+    background: #5924cc;
+    border: none;
+    color: white;
+    font-size: 16px;
+    transition: background .3s ease;
+}
+
+button:hover {
+    background: #6b47b8;
+}
+
+button:disabled {
+    cursor: default;
+    background: #510fdf94;
+}
+
+
+/* Join Page Styles */
+
+.centered-form {
+    background: #40475f;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-form__box {
+    font-size: 16px;
+    box-shadow: 0px 0px 17px 2px #1D1F26;
+    background: white;
+    padding: 24px;
+    width: 350px;
+}
+
+.centered-form button {
+    font-size: 18px;
+    width: 100%;
+}
+
+.centered-form input {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+/*Responsives*/
+@media only screen and (max-width: 600px) {
+
+}
+    
+    </style>
+</head>
+
+<body>
+    <div class="centered-form">
+        <div class="centered-form__box">
+            <img src="/icons/user icon.PNG" style="height: 50px; width: 50px;">
+            <img src="/icons/studocs.jpg" style="margin-left: 30px; height: 70px; width: 140px;">
+            <h1>OTP</h1>
+            <form method="POST">
+                <input type="text" name="otp" placeholder=" 6 Digit OTP" required>
+                <button>Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
