@@ -7,6 +7,22 @@
     <link rel="icon" href="/icons/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function signupForm(e) {
+            console.log("Hiiiiiii");
+            e.preventDefault();
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+
+            if(password.length<8){
+                Swal.fire("Password is too short");
+            }
+            if(password.lowercase.includes("password")){
+                Swal.fire("Password can not contain Pass");
+            }
+            console.log("Hiii");
+       }
+    </script>
 </head>
 
 <body>
@@ -22,7 +38,7 @@
                 <input type="text" id="name" name="name" placeholder="Enter Full Name" required>
                 <label>Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
-                <button>Sign Up</button>
+                <button type="submit">Sign Up</button>
             </form>
             <div><br>
                 Already have an account.
@@ -30,19 +46,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function signupForm(e) {
-            var password = document.getElementById('password').value;
-
-            if(password.length<8){
-                Swal.fire("Password is too short");
-            }
-            if(password.lowercase.includes("password")){
-                Swal.fire("Password can not contain Pass");
-            }
-       }
-    </script>
 
 </body>
 

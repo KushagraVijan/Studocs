@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get("/signup", (req, res) => {
-    res.render('sign up form');
+    res.render('signUpForm');
 })
 
 router.get("/homepage", (req, res) => {
@@ -37,8 +37,12 @@ router.post("/signup", async(req, res) => {
         var link = "/otp/" + user._id;
         res.redirect(link);
     } catch (e) {
-        if(e.name=="MongoError" && e.index==0)
-        res.status(400).send(e);
+        if(e.name=="MongoError"){
+            if(e.keyValue.email)
+            res.status(400).send(e.keyValue.email+" already exists.");
+            else
+            res.status(400).send(e.keyValue.name+" already exists. Change Username.");
+        }
         if(e.errors.password!=null)
         res.status(400).send(e.errors.password.message);
         if(e.errors.email!=null)
@@ -68,7 +72,7 @@ router.post("/otp/:id", async(req, res) => {
 })
 
 router.get("/login", (req, res) => {
-    res.render('login form');
+    res.render('loginForm');
 })
 
 router.post("/home", async(req, res) => {
