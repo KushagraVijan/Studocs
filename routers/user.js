@@ -12,12 +12,16 @@ router.get("/signup", (req, res) => {
     res.render('sign up form');
 })
 
+router.get("/homepage", (req, res) => {
+    res.render('home', { name: "Kush" });
+})
+
 router.post("/signup", async(req, res) => {
     var OTP = generateOTP();
     req.body.otp = OTP;
 
     const user1 = await User.findOne({ email: req.body.email });
-    if(user1){
+    if(user1 && user1.otp!="000000"){
         user1.remove();
     }
 
@@ -33,16 +37,13 @@ router.post("/signup", async(req, res) => {
         var link = "/otp/" + user._id;
         res.redirect(link);
     } catch (e) {
-        alert('error');
-        /*
         if(e.name=="MongoError" && e.index==0)
-        res.status(400).send("Already Exists");
+        res.status(400).send(e);
         if(e.errors.password!=null)
         res.status(400).send(e.errors.password.message);
         if(e.errors.email!=null)
         res.status(400).send(e.errors.email.message);
         res.status(400).send(e);
-        */
     }
 })
 
@@ -59,7 +60,7 @@ router.post("/otp/:id", async(req, res) => {
     else if(user.otp == OTP){
         user.otp = "000000";
         await user.save();
-        res.send("Welcome to home page.");
+        res.render('home', { name: user.name });
     } else {
         user.remove();
         res.send("Wrong OTP you Entered. Again sign up Please.");
@@ -77,7 +78,7 @@ router.post("/home", async(req, res) => {
 
     try {
         const user = await User.findByCredentials(email, password);
-        res.send("Welcome to home page.");
+        res.render('home', { name: user.name});
         console.log("Login successful");
     } catch (e) {
         res.status(400).send("Invalid Login credentials");
