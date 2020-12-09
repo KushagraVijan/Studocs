@@ -1,13 +1,31 @@
 const sgMail = require('@sendgrid/mail');
 
-sendgridApiKey = "hiii";
-
+//sendgridApiKey = "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";
+sendgridApiKey = "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";
 sgMail.setApiKey(sendgridApiKey);
+
+const sendOTPMail = (email, sub, otp) => {
+    sgMail.send({
+        to: email,
+        from: 'studocs03@gmail.com',
+        subject: sub,
+        text: 'OTP: ' + otp
+    })
+}
+
+const sendMsg = (email, sub, msg) => {
+    sgMail.send({
+        to: email,
+        from: 'studocs03@gmail.com',
+        subject: sub,
+        text: msg
+    })
+}
 
 const sendWelcomeMail = (email, name) => {
     sgMail.send({
         to: email,
-        from: 'kushagravijan33@gmail.com',
+        from: 'studocs03@gmail.com',
         subject: 'Thanks for joining in Studocs!',
         text: 'Welcome to the app, ' + name + '. Let me know how you get along with the app.'
     })
@@ -16,7 +34,7 @@ const sendWelcomeMail = (email, name) => {
 const sendCancelationMail = (email, name) => {
     sgMail.send({
         to: email,
-        from: 'kushagravijan33@gmail.com',
+        from: 'studocs03@gmail.com',
         subject: 'Sorry to see you go!',
         text: 'Goodbye, ' + name + '.I hope to see you back soon.'
     })
@@ -36,5 +54,7 @@ function generateOTP() {
 module.exports = {
     sendWelcomeMail,
     sendCancelationMail,
-    generateOTP
+    generateOTP, 
+    sendMsg,
+    sendOTPMail
 }
