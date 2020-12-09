@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/icons/favicon.png">
+		<title>Studocs</title>
+
+    <style>
+    
+      body {
+        overflow: auto;
+        font-family: "Times New Roman",serif;
+      }
+      
+      #heading{	
+        margin-left:350px;
+        font-size:45px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: white;
+        color: black;
+      }
+
+      .sidenav {
+        height: none;
+        width: none;
+        position: none;
+        background-color: none;
+      }
+
+      .sidenav a, .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        outline: none;
+      }
+
+      /* On mouse-over */
+      .sidenav a:hover, .dropdown-btn:hover {
+        color: blue;
+      }
+
+      /* Add an active class to the active dropdown button */
+      .active {
+        background-color: none;
+        color: black;
+      }
+
+      .dropdown-container {
+        display: none;
+        background-color: none;
+        padding-left: 18px;
+      }
+
+      .fa-caret-down {
+        float: left;
+        padding-right: 8px;
+      }
+
+      #image{
+	      float:left;
+      }
+
+      #top{
+	      margin-left:350px;
+      }
+      
+      .breadcrumb-item {
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: 750px) {
+        #image{
+          float: none;
+        }
+        
+        #top{
+          margin-left: 20px;
+        }
+      }
+      
+    </style>
+</head>
+
+<body>
+	<img src="/icons/turquoise.png" id="image"><hr>
+		<h1 id="top">Internship Offer Links</h1>
+		<hr>
+  
+    <div style="padding: 10px; margin-top: -10px;">
+      <!-- Nav Bar -->
+      <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/home/<%= user.name %>"><b>Home</b></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><b>Internships</b></li>
+          <li class="breadcrumb-item"><a href="/home/<%= user.name %>/placement"><b>Placements</b></a></li>
+        </ol>
+      </nav>
+      <!-- /Nav Bar -->
+    </div>
+
+  <h2 style="font-size:30px;">&#8811 Preperation Resources </h2>
+  
+<div class="sidenav">
+  <button class="dropdown-btn">CS-IT 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  
+  <div class="dropdown-container">
+    <a href="https://drive.google.com/file/d/1mBt5LuMHvZsJjwu35_Q9GEkTpBveKO6Y/view?usp=sharing">&#9679 American Express-Technical Developer</a>
+    <a href="https://drive.google.com/file/d/1UIrLrE7G6MOBdCO6J9UaklvtLUWiaNzg/view?usp=sharing">&#9679 Arcesium - Software Developer</a>
+    <a href="https://drive.google.com/file/d/1O6xHMorrVTD6pWv3LbRI0yVlLGLGnqiy/view?usp=sharing">&#9679 Microsoft-Software Developer</a>
+  </div>
+  <button class="dropdown-btn">Core 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://drive.google.com/file/d/1xLi39EA7jWzWdngeqnhz_YwOQU-OLUS-/view?usp=sharing">&#9679 Texas Instruments - Analog Digital Engineer</a>
+    <a href="https://drive.google.com/file/d/1Insws_5kHeMy1AW0FdJ0tfvEl51pZxpp/view?usp=sharing">&#9679 Western Digital - Digital Engineer</a>
+    <a href="https://drive.google.com/file/d/1KDLZv43sf4MtVMYlTP853JXuHIUGhqF4/view?usp=sharing">&#9679 General Electric - Core Engineering</a>
+  </div>
+    <button class="dropdown-btn">Non Core 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://drive.google.com/file/d/1MKael5vnLsYLzj3WEWNKVSvlxao7cu13/view?usp=sharing">&#9679 JP Morgan - Analytics</a>
+    <a href="https://drive.google.com/file/d/1pf7dW3TK6TgB8Bj7uMmO8plz0__XJvID/view?usp=sharing">&#9679 MasterCard - Analytics</a>
+    <a href="https://drive.google.com/file/d/1rY3vIuJJddarL2HNXhFW0dl58zEcDwi7/view?usp=sharing">&#9679 Mckinsey and Company - Analytics</a>
+  </div>
+  <br>
+  <h2 style="font-size:30px;">&#8811 Off-Campus Internships </h2>
+    <ul>
+      <li><a href="https://interntojob.com/"> https://interntojob.com/</a></li>
+      <li><a href="https://www.linkedin.com/jobs/search/?geoId=102713980&keywords=intern&location=India"> https://www.linkedin.com/jobs/search/?geoId=102713980&keywords=intern&location=India</a></li>
+    </ul>
+</div>
+
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+</body>
+</html> 

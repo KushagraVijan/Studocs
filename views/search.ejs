@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Studocs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/icons/favicon.png">
+
+    <style>
+
+        body{
+            margin-top: 38px;
+            color: #1a202c;
+            text-align: left;
+            background-color: #40475f;    
+        }
+
+        #search {
+            display: flex;
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+
+        #search input {
+            padding-left: 10px;
+            margin-left: 5%;
+            width: 80%;
+            font-size: 20px;
+            height: 50px;
+            border: none;
+        }
+
+        #search button {
+            background-image: url('/icons/search.png');
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .main-body {
+           padding: 15px;
+        }
+
+        /*Responsives*/
+        @media only screen and (max-width: 800px) {
+            #search{
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+            }    
+        }
+    
+    </style>
+</head>
+
+<body>
+    <form id="search">
+        <input name="id" type="text" placeholder="Enter user name or email to search..." required></input>
+        <button type="submit"></button>
+    </form>
+    <h4 id="error" style="margin-top: 30px; text-align: center; color: white; font-size: 28px;"><%= error %></h4>
+</body>
+
+</html>

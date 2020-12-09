@@ -5,9 +5,9 @@
     <title>Studocs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/icons/favicon.png">
-    <style>
-        
-    /* General Styles */
+    <link rel="stylesheet" href="styles.css">
+    <style>    
+        /* General Styles */
 
 * {
     margin: 0;
@@ -24,6 +24,7 @@ input {
 }
 
 body {
+    background: #40475f;
     line-height: 1.4;
     color: #333333;
     font-family: Helvetica, Arial, sans-serif;
@@ -36,8 +37,9 @@ h1 {
 label {
     display: block;
     font-size: 16px;
+    margin-top: 10px;
     margin-bottom: 8px;
-    color: #333;
+    color: black;
 }
 
 input {
@@ -101,7 +103,7 @@ button:disabled {
 
 }
     
-    </style>
+      </style>
 </head>
 
 <body>
@@ -109,10 +111,10 @@ button:disabled {
         <div class="centered-form__box">
             <img src="/icons/user icon.PNG" style="height: 50px; width: 50px;">
             <img src="/icons/studocs.jpg" style="margin-left: 30px; height: 70px; width: 140px;">
-            <h1>OTP</h1>
             <form method="POST">
-                <input type="text" name="otp" placeholder=" 6 Digit OTP" required>
-                <button>Register</button>
+                <label>Delete OTP:</label>
+                <input type="text" name="otp" placeholder="Enter 6 Digit OTP" required>
+                <button>Delete</button>
             </form>
         </div>
     </div>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+  <!--  All snippets are MIT license http://bootdey.com/license -->
+  <title>Studocs Profile</title>
+  <link rel="icon" href="/icons/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+    .container {
+        margin-top:21px;
+        color: #1a202c;
+        text-align: left;
+        background-color: #40475f;    
+    }
+      
+    .main-body {
+        padding: 15px;
+    }    
+
+      /* General Styles */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    body {
+        background: #40475f;
+        line-height: 1.4;
+        color: #333333;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: black;
+    }
+
+    input {
+        border: 1px solid #dddddd;
+        padding: 12px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    button {
+        cursor: pointer;
+        padding: 12px;
+        background: #5924cc;
+        border: none;
+        color: white;
+        font-size: 16px;
+        transition: background .3s ease;
+    }
+
+    button:hover {
+        background: #6b47b8;
+    }
+
+    button:disabled {
+        cursor: default;
+        background: #510fdf94;
+    }
+
+
+    /* Join Page Styles */
+
+    .centered-form {
+        background: #40475f;
+        width: 100vw;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin: 25px;
+    }
+
+    .centered-form__box {
+        font-size: 16px;
+        box-shadow: 0px 0px 17px 2px #1D1F26;
+        background: white;
+        padding: 24px;
+        width: 450px;
+    }
+
+    .centered-form button {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .centered-form input {
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    /*Responsives*/
+    @media only screen and (max-width: 800px) {
+        .centered-form {
+            margin-right: 5%;
+            margin-left: 5%;
+            width: 90%;
+        }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container" style="background: #40475f;">
+  <div class="main-body">
+    
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/home/<%= user.name %>"><b>Home</b></a></li>
+        <li class="breadcrumb-item"><a href="/home/<%= user.name %>/profile"><b>User Profile</b></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><b>Edit Profile</b></li>
+    </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+    
+   </div>
+</div>
+
+<div class="centered-form">
+    <div class="centered-form__box">
+        <img src="https://bootdey.com/img/Content/avatar/avatar<%= user.pic %>.png" alt="Admin" class="rounded-circle" width="150" style="margin-left: 15px;">
+        <img src="/icons/studocs.jpg" style="margin-left: 40px; height: 100px; width: 180px;">
+        <h5 style="margin-top: 20px; margin-bottom: 20px; text-align: center;"><%= user.email %></h5>
+        <form name="editProfile" method="post">
+            <label>Username:</label>
+            <input type="text" name="name" value="<%= user.name %>" required>
+            <label>Age:</label>
+            <input type="number" name="age" value="<%= user.age %>" required>
+            <label>Gender(Male/Female):</label>
+            <input type="text" name="gender" value="<%= user.gender %>" required>
+            
+            <label>Branch:</label>
+            <input type="text" name="branch" value="<%= user.branch %>" required>
+            <label>Batch:</label>
+            <input type="number" name="batch" value="<%= user.batch %>" required>
+            <label>SID:</label>
+            <input type="number" name="sid" value="<%= user.sid %>" required>
+            <label>Mobile:</label>
+            <input type="text" name="mobile" value="<%= user.mobile %>" required>
+            <label>Address:</label>
+            <input type="text" name="address" value="<%= user.address %>">
+            
+            <label>Website:</label>
+            <input type="text" name="website" value="<%= user.website %>">
+            <label>Github:</label>
+            <input type="text" name="github" value="<%= user.github %>">
+            <label>Twitter:</label>
+            <input type="text" name="twitter" value="<%= user.twitter %>">
+            <label>Instagram:</label>
+            <input type="text" name="instagram" value="<%= user.instagram %>">
+            <label>Facebook:</label>
+            <input type="text" name="facebook" value="<%= user.facebook %>">
+            
+            <button type="submit"><b>Save</b></button>
+        </form>
+  </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>
