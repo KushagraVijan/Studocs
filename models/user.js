@@ -40,15 +40,93 @@ const userSchema = mongoose.Schema({
     
     otp: {
         type: String,
-        default: "0000",
+        default: "000000-"
     },
 
+    registered: {
+        type: Boolean,
+        default: false
+    },
+    
+    // Profile Settings->
+    
+    branch: {
+        type: String,
+        default: "Branch"
+    },
+
+    batch: {
+        type: Number,
+        default: 2022,
+        validate(value) {
+            if(value < 2019 || value > 2025) {
+                throw new Error("Incorrect Batch Year");             
+            }
+        }
+    },
+    
     age: {
         type: Number,
-        default: 18,
         validate(value) {
             if(value < 18) {
                 throw new Error("Age cannot be less than 18");             
+            }
+        }
+    },
+
+    sid: {
+        type: Number,
+        validate(value) {
+            if((value/1000000)<=15 || (value/1000000)>21) {
+                throw new Error("Incorrect SID");             
+            }
+        }
+    },
+    
+    mobile: {
+        type: Number,
+        validate(value) {
+            if(value >= 10000000000 || value <= 999999999) {
+                throw new Error("Invalid Mobile No.");
+            } 
+        }
+    },
+
+    address: {
+        type: String,
+        default: "Address"
+    },
+
+    website: {
+        type: String,
+        default: "Website"
+    },
+
+    github: {
+        type: String,
+        default: "Github"
+    },
+
+    twitter: {
+        type: String,
+        default: "Twitter"
+    },
+
+    instagram: {
+        type: String,
+        default: "Instagram"
+    },
+
+    facebook: {
+        type: String,
+        default: "Facebook"
+    },
+
+    gender: {
+        type: String,
+        validate(value) {
+            if(value!="Male" && value!="Female" && value!="M" && value!="F") {
+                throw new Error("Choose correct Gender");
             }
         }
     },
@@ -61,8 +139,8 @@ const userSchema = mongoose.Schema({
     }],
 
     pic: {
-        type: Buffer,
-        default:"https://res.cloudinary.com/cnq/image/upload/v1586197723/noimage_d4ipmd.png"
+        type: Number,
+        default: 7
     }
 
 }, {
@@ -81,12 +159,11 @@ userSchema.methods.generateAuthToken = async function() {
     return token;
 }
 
-
 // findByCredentials is not a pre defined so we are able to use other name also.
 userSchema.statics.findByCredentials = async(email, password) => {
     const user = await User.findOne({ email });
 
-    if (!user || user.otp != "000000") {
+    if (!user || user.registered==false) {
         throw new Error("Unable to Login");
     }
 
